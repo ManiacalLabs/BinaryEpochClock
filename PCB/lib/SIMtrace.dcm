@@ -1,0 +1,24 @@
+EESchema-DOCLIB  Version 2.0  Date: Mo 20 Jun 2011 20:53:23 CEST
+#
+$CMP BC847
+F transistors/bipolar/*.*
+$ENDCMP
+#
+$CMP CB3Q3244
+D SN74CB3Q3244
+$ENDCMP
+#
+$CMP JTAG
+D symbole general de connecteur
+K CONN
+$ENDCMP
+#
+$CMP LM3046
+F datasheet/LM3046.pdf
+$ENDCMP
+#
+$CMP LM3046M
+F datasheet/LM3046.pdf
+$ENDCMP
+#
+#End Doc Library

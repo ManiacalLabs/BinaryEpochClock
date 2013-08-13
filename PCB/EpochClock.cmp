@@ -1,0 +1,360 @@
+Cmp-Mod V01 Created by CvPcb (2013-05-31 BZR 4019)-stable date = 6/11/2013 6:16:34 PM
+
+BeginCmp
+TimeStamp = /515B2C63;
+Reference = BAT1;
+ValeurCmp = BATTERY12PTH;
+IdModule  = fixed-SparkFun-BATTCON_12MM_PTH;
+EndCmp
+
+BeginCmp
+TimeStamp = /51464A55;
+Reference = C1;
+ValeurCmp = 0.1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /515B38D3;
+Reference = C2;
+ValeurCmp = 0.1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /515B3CAC;
+Reference = C3;
+ValeurCmp = 0.1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CEDCF;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CEDF2;
+Reference = D2;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CEDF8;
+Reference = D3;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CEDFE;
+Reference = D4;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CF0E5;
+Reference = D5;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CF0EB;
+Reference = D6;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CF0F1;
+Reference = D7;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CF0F7;
+Reference = D8;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146105C;
+Reference = D9;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461062;
+Reference = D10;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461068;
+Reference = D11;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146106E;
+Reference = D12;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461079;
+Reference = D13;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146107F;
+Reference = D14;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461085;
+Reference = D15;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146108B;
+Reference = D16;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610CC;
+Reference = D17;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610D2;
+Reference = D18;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610D8;
+Reference = D19;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610DE;
+Reference = D20;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610E9;
+Reference = D21;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610EF;
+Reference = D22;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610F5;
+Reference = D23;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /514610FB;
+Reference = D24;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461108;
+Reference = D25;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146110E;
+Reference = D26;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461114;
+Reference = D27;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146111A;
+Reference = D28;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461125;
+Reference = D29;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146112B;
+Reference = D30;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461131;
+Reference = D31;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /51461137;
+Reference = D32;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /513CEC55;
+Reference = IC1;
+ValeurCmp = ATMEGA328-P;
+IdModule  = fixed_SparkFun-DIL28-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /514A4D11;
+Reference = JP1;
+ValeurCmp = FTDI_BASICPTH;
+IdModule  = SparkFun-FTDI_BASIC_fixed;
+EndCmp
+
+BeginCmp
+TimeStamp = /514640A1;
+Reference = P1;
+ValeurCmp = ICSP;
+IdModule  = pin_array_3x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /51464D44;
+Reference = R1;
+ValeurCmp = 330;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /51464DE3;
+Reference = R2;
+ValeurCmp = 330;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /51464DE9;
+Reference = R3;
+ValeurCmp = 330;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /51464DEF;
+Reference = R4;
+ValeurCmp = 330;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /5146536A;
+Reference = R5;
+ValeurCmp = 10K;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /515C8E85;
+Reference = R6;
+ValeurCmp = 110;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /51462160;
+Reference = S1;
+ValeurCmp = TAC_SWITCHPTH;
+IdModule  = SparkFun-TACTILE-PTH_fixed;
+EndCmp
+
+BeginCmp
+TimeStamp = /51462653;
+Reference = S2;
+ValeurCmp = TAC_SWITCHPTH;
+IdModule  = SparkFun-TACTILE-PTH_fixed;
+EndCmp
+
+BeginCmp
+TimeStamp = /515B2EED;
+Reference = U1;
+ValeurCmp = DS1307SO8;
+IdModule  = fixed_SparkFun-DIL08;
+EndCmp
+
+BeginCmp
+TimeStamp = /515B2599;
+Reference = USB1;
+ValeurCmp = USB-MINI-B;
+IdModule  = USB-MINI-B-CIRCULAR_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /515C8A23;
+Reference = Y1;
+ValeurCmp = RESONATOR-16MHZ;
+IdModule  = FIXED_SparkFun-RESONATOR-PTH;
+EndCmp
+
+BeginCmp
+TimeStamp = /515B387E;
+Reference = Y2;
+ValeurCmp = CRYSTALTC38H;
+IdModule  = fixed_SparkFun-TC38H;
+EndCmp
+
+EndListe

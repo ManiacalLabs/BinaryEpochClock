@@ -1,0 +1,10 @@
+In order to build sync_time.exe for windows use (for those that don't have Python), pyinstaller must first be installed.
+
+- Install Python 2.7 to C:\Python27 (this is the default install path)
+- Download pyinstaller from here: http://sourceforge.net/projects/pyinstaller/files/2.0/pyinstaller-2.0.zip/download
+- Unzip pyinstaller into C:\Python27\pyinstaller (this is not really standard but goes with my exe build scripts)
+- Download pywin32 from here: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/
+	- Be sure to download the version for your architecture (x86/x64) AND Python version. 2.7 in this case.
+	- Install with defaults (will install itself into C:\Python27)
+- Create the folder C:\dev\temp
+- Once complete you should be able to just run build_sync_time_exe.cmd in the svn directory to build the exe from the python script.
