@@ -590,7 +590,7 @@ The main program state machine.
 void loop()
 {
 
-  if(curState == STATE_NONE)
+  /* if(curState == STATE_NONE) //commented out to try new method of reading clock
   {
     if(TimeElapsed(timeRef, 500))
     {
@@ -599,6 +599,108 @@ void loop()
       unix = dt_now.unixtime();
     }
   }
+  */
+  
+  if(curState == STATE_NONE)
+  {
+    if(TimeElapsed(timeRef, 500))
+    {
+      timeRef = millis();
+      dt_now = RTC->now();
+      
+      year = dt_now.year - 2000;
+
+	valcheck = 32;
+	for (y=31; y>=26; y--)
+	{
+	if (year >= valcheck) {
+		unix |= (1UL << y);
+		year = year - valcheck;
+		}
+	else {
+		unix &= ~(1UL << y);
+		}
+	valcheck = valcheck / 2;
+	}
+
+	month = dt_now.month;
+
+	valcheck = 8;
+	for (m=25; m>=22; m--)
+	{
+	if (month >= valcheck) {
+		unix |= (1UL << m);
+		month = month - valcheck;
+		}
+	else {
+		unix &= ~(1UL << m);
+		}
+	valcheck = valcheck / 2;
+	}
+
+	day = dt_now.day;
+
+	valcheck = 16;
+	for (d=21; d>=17; d--)
+	{
+	if (day >= valcheck) {
+		unix |= (1UL << d);
+		day = day - valcheck;
+		}
+	else {
+		unix &= ~(1UL << d);
+		}
+	valcheck = valcheck / 2;
+	}
+
+
+	hour = dt_now.hour;
+
+	valcheck = 16;
+	for (h=16; h>=12; h--)
+	{
+	if (hour >= valcheck) {
+		unix |= (1UL << h);
+		hour = hour - valcheck;
+		}
+	else {
+		unix &= ~(1UL << h);
+		}
+	valcheck = valcheck / 2;
+	}
+
+	minute = dt_now.minute;
+
+	valcheck = 32;
+	for (mm=11; mm>=6; mm--)
+	{
+	if (minute >= valcheck) {
+		unix |= (1UL << mm);
+		minute = minute - valcheck;
+		}
+	else {
+		unix &= ~(1UL << mm);
+		}
+	valcheck = valcheck / 2;
+	}
+
+	second = dt_now.second;
+
+	valcheck = 32;
+	for (s=5; s>=0; s--)
+	{
+	if (second >= valcheck) {
+		unix |= (1UL << s);
+		second = second - valcheck;
+		}
+	else {
+		unix &= ~(1UL << s);
+		}
+	valcheck = valcheck / 2;
+	}
+}
+}
+  
   else if(curState == STATE_PAUSE)
   {
     if(TimeElapsed(timeOutRef, 600000))
