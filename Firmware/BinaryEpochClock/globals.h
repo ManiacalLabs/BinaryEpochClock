@@ -5,7 +5,7 @@
 #include "Arduino.h"
 #include "RTCLib.h"
 
-volatile uint32_t unix;
+volatile uint32_t dispBuf;
 unsigned long timeRef;
 unsigned long timeOutRef;
 uint8_t pwmStep = 0;
@@ -29,11 +29,13 @@ volatile boolean holdFlag = false;
 uint16_t holdMax = 60;
 
 //Valid state machine states
-#define STATE_NONE       0
-#define STATE_MANUAL_SET 1
-#define STATE_SERIAL_SET 2
-#define STATE_PAUSE      3
-volatile uint8_t curState = STATE_NONE;
+#define STATE_FULL_BINARY       0
+#define STATE_SUB_BINARY		1
+#define STATE_MANUAL_SET		2
+#define STATE_SERIAL_SET		3
+#define STATE_PAUSE				4
+
+volatile uint8_t curState = STATE_FULL_BINARY;
 
 //For manually setting the time and used with curSet
 #define SET_Y1 		0
@@ -85,6 +87,13 @@ bool setChanged = false;
 bool timeUpdated = false;
 bool timeReady = false;
 bool setCancel = false;
+
+//sub-binary globals
+uint8_t sbCurBit;
+uint8_t sbOffsets[] = {0, 6, 12, 17, 22, 26};
+uint8_t sbBits[] = {5, 5, 4, 4, 3, 5};
+uint8_t sbVals[6];
+
 
 //Limits for each field value and for months
 //Store in progmem since they are rarely used.
