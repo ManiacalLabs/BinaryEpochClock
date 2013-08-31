@@ -1,5 +1,14 @@
-BinaryEpochClock
-================
+BinaryEpochClock - Alt
+======================
+
+**THIS IS ALTERNATE FIRMWARE**
+
+*This repository is a fork of the original Maniacal Labs code and based on changes suggested by [kredal](https://github.com/kredal/) to make the clock face a little more readable.
+Short press A in order to switch between the clock faces and use the following key to make it a little easier to read: http://maniacallabs.com/misc/Binary_Clock_Key.png*
+
+
+
+
 
 The Binary Epoch Clock is a new twist on the old binary clock idea. Instead of just showing the individual digits as binary values, it show [Unix Epoch](http://en.wikipedia.org/wiki/Unix_Epoch) time as a full 32-bit binary value. This unique timepiece will make a great addition to the desk of any computer, electronics, time, or binary geek.
 
