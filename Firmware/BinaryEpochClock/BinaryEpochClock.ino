@@ -608,7 +608,7 @@ void loop()
       timeRef = millis();
       dt_now = RTC->now();
       
-      int year = dt_now.year - 2000;
+      int year = dt_now.year() - 2000;
 
 	int valcheck = 32;
 	for (int y=31; y>=26; y--)
@@ -623,7 +623,7 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	int month = dt_now.month;
+	int month = dt_now.month();
 
 	valcheck = 8;
 	for (int m=25; m>=22; m--)
@@ -638,7 +638,7 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	int day = dt_now.day;
+	int day = dt_now.day();
 
 	valcheck = 16;
 	for (int d=21; d>=17; d--)
@@ -654,7 +654,7 @@ void loop()
 	}
 
 
-	int hour = dt_now.hour;
+	int hour = dt_now.hour();
 
 	valcheck = 16;
 	for (int h=16; h>=12; h--)
@@ -669,7 +669,7 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	int minute = dt_now.minute;
+	int minute = dt_now.minute();
 
 	valcheck = 32;
 	for (int mm=11; mm>=6; mm--)
@@ -684,7 +684,7 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	int second = dt_now.second;
+	int second = dt_now.second();
 
 	valcheck = 32;
 	for (int s=5; s>=0; s--)
