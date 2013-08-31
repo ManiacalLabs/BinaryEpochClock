@@ -608,10 +608,10 @@ void loop()
       timeRef = millis();
       dt_now = RTC->now();
       
-      year = dt_now.year - 2000;
+      int year = dt_now.year - 2000;
 
-	valcheck = 32;
-	for (y=31; y>=26; y--)
+	int valcheck = 32;
+	for (int y=31; y>=26; y--)
 	{
 	if (year >= valcheck) {
 		unix |= (1UL << y);
@@ -623,10 +623,10 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	month = dt_now.month;
+	int month = dt_now.month;
 
 	valcheck = 8;
-	for (m=25; m>=22; m--)
+	for (int m=25; m>=22; m--)
 	{
 	if (month >= valcheck) {
 		unix |= (1UL << m);
@@ -638,10 +638,10 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	day = dt_now.day;
+	int day = dt_now.day;
 
 	valcheck = 16;
-	for (d=21; d>=17; d--)
+	for (int d=21; d>=17; d--)
 	{
 	if (day >= valcheck) {
 		unix |= (1UL << d);
@@ -654,10 +654,10 @@ void loop()
 	}
 
 
-	hour = dt_now.hour;
+	int hour = dt_now.hour;
 
 	valcheck = 16;
-	for (h=16; h>=12; h--)
+	for (int h=16; h>=12; h--)
 	{
 	if (hour >= valcheck) {
 		unix |= (1UL << h);
@@ -669,10 +669,10 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	minute = dt_now.minute;
+	int minute = dt_now.minute;
 
 	valcheck = 32;
-	for (mm=11; mm>=6; mm--)
+	for (int mm=11; mm>=6; mm--)
 	{
 	if (minute >= valcheck) {
 		unix |= (1UL << mm);
@@ -684,10 +684,10 @@ void loop()
 	valcheck = valcheck / 2;
 	}
 
-	second = dt_now.second;
+	int second = dt_now.second;
 
 	valcheck = 32;
-	for (s=5; s>=0; s--)
+	for (int s=5; s>=0; s--)
 	{
 	if (second >= valcheck) {
 		unix |= (1UL << s);
