@@ -1,7 +1,9 @@
 /*
-Version 1.0
-Copyright (c) 2013 Adam Haile & Dan Ternes.  All right reserved.
+Version 1.1
+Copyright (c) 2013 Adam Haile, Dan Ternes & Miles Grubbs.  All right reserved.
 http://ManiacalLabs.com
+
+Many Thanks to Adafruit and Josh Ward (Kredal) for some of the code contained within.
 */
 
 /*
