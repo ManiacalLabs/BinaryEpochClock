@@ -1,10 +1,15 @@
-BinaryEpochClock - Alt
-======================
+BinaryEpochClock
+================
 
-**THIS IS ALTERNATE FIRMWARE**
+**THIS MAY NOT BE THE FIRMWARE THAT CAME WITH YOUR CLOCK**
 
-*This repository is a fork of the original Maniacal Labs code and based on changes suggested by [kredal](https://github.com/kredal/) to make the clock face a little more readable.
-Short press A in order to switch between the clock faces and use the following key to make it a little easier to read: http://maniacallabs.com/misc/Binary_Clock_Key.png*
+*We are constantly working on improving the firmware of our kits and the firmware contained in this repository may not be the same as that which came pre-programmed on your Binary Epoch Clock Kit.*
+
+There are a few improvements over the original v1.0 Firmware
+
+- Based on changes suggested by [kredal](https://github.com/kredal/) there is an alternte clock face to make the clock face a little more readable. Use the following key to make it a little easier to read: http://maniacallabs.com/misc/Binary_Clock_Key.png
+- A 1D Pong face is not included - It is not playable, just sit back and enjoy the game.
+- Short press A in order to switch between the three clock faces
 
 
 
