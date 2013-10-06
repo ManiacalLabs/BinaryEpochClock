@@ -8,7 +8,7 @@ BinaryEpochClock
 There are a few improvements over the original v1.0 Firmware
 
 - Based on changes suggested by [kredal](https://github.com/kredal/) there is an alternte clock face to make the clock face a little more readable. Use the following key to make it a little easier to read: http://maniacallabs.com/misc/Binary_Clock_Key.png
-- A 1D Pong face is not included - It is not playable, just sit back and enjoy the game.
+- A 1D Pong face is now included - It is not playable, just sit back and enjoy the game.
 - Short press A in order to switch between the three clock faces
 
 
