@@ -31,11 +31,13 @@ uint16_t holdMax = 60;
 //Valid state machine states
 #define STATE_FULL_BINARY       0
 #define STATE_SUB_BINARY		1
-#define STATE_MANUAL_SET		2
-#define STATE_SERIAL_SET		3
-#define STATE_PAUSE				4
+#define STATE_PONG				2
+#define STATE_MANUAL_SET		3
+#define STATE_SERIAL_SET		4
+#define STATE_PAUSE				5
 
 volatile uint8_t curState = STATE_FULL_BINARY;
+volatile uint8_t prevState = STATE_FULL_BINARY;
 
 //For manually setting the time and used with curSet
 #define SET_Y1 		0

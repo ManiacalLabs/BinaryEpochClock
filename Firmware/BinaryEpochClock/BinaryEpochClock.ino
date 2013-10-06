@@ -307,7 +307,7 @@ inline void endSerialSet()
 {
 	Serial.end();
 	setResetDisable(false);
-	curState = STATE_FULL_BINARY;
+	curState = prevState;
 }
 
 //Timer2 interrupt for handling button presses
@@ -322,8 +322,9 @@ ISR(TIMER2_COMPA_vect)
 			bCount = 0;
 			if(bSave & ~BUTTON_A)
 			{
-				if(curState == STATE_FULL_BINARY)
+				if(curState <= STATE_SUB_BINARY)
 				{
+					prevState = curState;
 					timeReady = false;
 					setCancel = false;
 					curState = STATE_MANUAL_SET;
@@ -338,7 +339,7 @@ ISR(TIMER2_COMPA_vect)
 				}
 				else if(curState == STATE_PAUSE)
 				{
-					curState = STATE_FULL_BINARY;
+					curState = prevState;
 					ReadPwmLevel(); 
 				}
 				else if(curState == STATE_SERIAL_SET)
@@ -348,14 +349,15 @@ ISR(TIMER2_COMPA_vect)
 			}
 			else if(bSave & ~BUTTON_B)
 			{
-				if(curState == STATE_FULL_BINARY)
+				if(curState <= STATE_SUB_BINARY)
 				{
+					prevState = curState;
 					curState = STATE_PAUSE;  
 					timeOutRef = millis();  
 				}
 				else if(curState == STATE_PAUSE)
 				{
-					curState = STATE_FULL_BINARY;
+					curState = prevState;
 					ReadPwmLevel();   
 				}
 				else if(curState == STATE_MANUAL_SET)
@@ -369,8 +371,9 @@ ISR(TIMER2_COMPA_vect)
 			}
 			else
 			{
-				if(curState == STATE_FULL_BINARY)
+				if(curState <= STATE_SUB_BINARY)
 				{
+					prevState = curState;
 					setResetDisable(true);
 					Serial.begin(SERIAL_BAUD);
 					_serialScan = 16; //start in middle
@@ -384,7 +387,7 @@ ISR(TIMER2_COMPA_vect)
 				}
 				else if(STATE_PAUSE)
 				{
-					curState = STATE_FULL_BINARY;
+					curState = prevState;
 					ReadPwmLevel();  
 				}
 			}
@@ -422,7 +425,7 @@ ISR(INT0_vect) {
 			}
 			else if(bSave & ~BUTTON_B)
 			{
-				if(curState == STATE_FULL_BINARY)
+				if(curState <= STATE_SUB_BINARY)
 				{
 					//Change PWM level
 					pwmLevel--;
@@ -644,7 +647,7 @@ void loop()
 	{
 		if(TimeElapsed(timeOutRef, 600000))
 		{
-			curState = STATE_FULL_BINARY;
+			curState = prevState;
 		}
 		else
 		{
@@ -662,7 +665,7 @@ void loop()
 		if(timeReady)
 		{
 			adjustFromSetVal();
-			curState = STATE_FULL_BINARY; 
+			curState = prevState; 
 		}
 		else if(setChanged)
 		{
@@ -676,7 +679,7 @@ void loop()
 		}
 		else if(setCancel)
 		{
-			curState = STATE_FULL_BINARY;
+			curState = prevState;
 		}
 
 	}
@@ -686,7 +689,7 @@ void loop()
 		{
 			Serial.end();
 			setResetDisable(false);
-			curState = STATE_FULL_BINARY;
+			curState = prevState;
 		}
 		else
 		{
@@ -700,7 +703,7 @@ void loop()
 
 			//check for serial data for time sync
 			if(getPCTimeSync())
-				curState = STATE_FULL_BINARY;
+				curState = prevState;
 		}
 	}
 }
