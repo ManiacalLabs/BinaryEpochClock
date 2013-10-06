@@ -83,7 +83,7 @@ volatile uint8_t prevState = STATE_FULL_BINARY;
 
 volatile uint8_t curSet = SET_Y1;
 volatile uint8_t setValues[10] = {
-  0,0,0,0,0,0,0,0,0,0};
+	0,0,0,0,0,0,0,0,0,0};
 DateTime dt_now = DateTime();
 bool setChanged = false;
 bool timeUpdated = false;
@@ -100,18 +100,27 @@ uint8_t sbVals[6];
 //Limits for each field value and for months
 //Store in progmem since they are rarely used.
 PROGMEM uint8_t
-//Y   Y . M   M . D  D   H   H : M   M
-limit[]       = {  
-  9,  9,  1,  9,  3,  9,  2,  9,  5,  9}
+	//Y   Y . M   M . D  D   H   H : M   M
+	limit[]       = {  
+		9,  9,  1,  9,  3,  9,  2,  9,  5,  9}
 ,
-daysInMonth[] = { 
-  31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	daysInMonth[] = { 
+		31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 //Used for the larson scanner effect during Serial Set mode.
 volatile byte _serialScan = 0;
 volatile byte _serialScanStep = 0;
 bool _serialScanDir = false;
 const uint8_t scanLevels[] = {10,3,1}; 
+
+uint8_t _pongBall = 16;
+uint8_t _pongLScore = 0;
+uint8_t _pongRScore = 0;
+bool _pongDir = false;
+uint32_t _pongPaddles = 0;
+bool _pongShowScore = false;
+#define PONG_TIMEOUT 100
+uint16_t _pongTimeout = PONG_TIMEOUT;
 
 //For getting the time over serial connection
 #define SYNC_LEN 5  // time sync is 1 byte header + 4 byte time_t

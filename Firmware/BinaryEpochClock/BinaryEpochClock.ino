@@ -322,7 +322,7 @@ ISR(TIMER2_COMPA_vect)
 			bCount = 0;
 			if(bSave & ~BUTTON_A)
 			{
-				if(curState <= STATE_SUB_BINARY)
+				if(curState <= STATE_PONG)
 				{
 					prevState = curState;
 					timeReady = false;
@@ -349,7 +349,7 @@ ISR(TIMER2_COMPA_vect)
 			}
 			else if(bSave & ~BUTTON_B)
 			{
-				if(curState <= STATE_SUB_BINARY)
+				if(curState <= STATE_PONG)
 				{
 					prevState = curState;
 					curState = STATE_PAUSE;  
@@ -371,7 +371,7 @@ ISR(TIMER2_COMPA_vect)
 			}
 			else
 			{
-				if(curState <= STATE_SUB_BINARY)
+				if(curState <= STATE_PONG)
 				{
 					prevState = curState;
 					setResetDisable(true);
@@ -420,12 +420,18 @@ ISR(INT0_vect) {
 				}
 				else if(curState == STATE_SUB_BINARY)
 				{
+					resetPongBall();
+					_pongLScore = _pongRScore = 0;
+					curState = STATE_PONG;
+				}
+				else if(curState == STATE_PONG)
+				{
 					curState = STATE_FULL_BINARY;
 				}
 			}
 			else if(bSave & ~BUTTON_B)
 			{
-				if(curState <= STATE_SUB_BINARY)
+				if(curState <= STATE_PONG)
 				{
 					//Change PWM level
 					pwmLevel--;
@@ -595,6 +601,34 @@ bool getPCTimeSync()
 	return result;
 }
 
+inline void resetPongBall() 
+{ 
+	randomSeed(millis());
+	_pongBall = random(2) ? 15 : 16; 
+	_pongDir = _pongBall > 15;
+	_pongPaddles = (1UL << 31) | (1UL << 0);
+}
+
+inline void randomPongPaddles()
+{
+
+	switch ( random(4) % 4)
+	{
+	case 0:
+		_pongPaddles = 0;
+		break;
+	case 1: 
+		_pongPaddles = (1UL << 31);
+		break;
+	case 2: 
+		_pongPaddles = (1UL << 0);
+		break;
+	case 3: 
+		_pongPaddles = (1UL << 31) | (1UL << 0);
+		break;
+	}
+}
+
 /*
 The main program state machine.
 Most of the time this will just be updating the time every 500ms
@@ -612,10 +646,10 @@ void loop()
 			dispBuf = dt_now.unixtime();
 		}
 	}
-        //many thanks to Josh Ward for this new clock "face" that's a little more readable
-        //https://github.com/kredal/
-        //Use the following "key" for reading in this mode: http://maniacallabs.com/misc/Binary_Clock_Key.png
-        //Tapping A will now switch between the modes
+	//many thanks to Josh Ward for this new clock "face" that's a little more readable
+	//https://github.com/kredal/
+	//Use the following "key" for reading in this mode: http://maniacallabs.com/misc/Binary_Clock_Key.png
+	//Tapping A will now switch between the modes
 	else if(curState == STATE_SUB_BINARY)
 	{
 		if(TimeElapsed(timeRef, 500))
@@ -640,6 +674,69 @@ void loop()
 					else
 						dispBuf &= ~(1UL << sbCurBit + sbOffsets[i]);
 				}
+			}
+		}
+	}
+	else if(curState == STATE_PONG)
+	{
+		if(TimeElapsed(timeRef, _pongTimeout))
+		{
+			timeRef = millis();
+			if(_pongShowScore)
+			{
+				_pongShowScore = false;
+				_pongTimeout = PONG_TIMEOUT;
+				if(_pongLScore >= 16 || _pongRScore >= 16)
+				{
+					_pongLScore = _pongRScore = 0;
+				}
+			}
+
+			if(_pongDir)
+			{
+				if(_pongBall == 30)
+				{
+					if(_pongPaddles & (1UL << 31))
+					{
+						_pongDir = false;
+						randomPongPaddles();
+					}
+					else
+					{
+						_pongRScore++;
+						_pongShowScore = true;
+						resetPongBall();
+					}
+				}
+			}
+			else
+			{
+				if(_pongBall == 1)
+				{
+					if(_pongPaddles & (1UL << 0))
+					{
+						_pongDir = true; 
+						randomPongPaddles();
+					}
+					else
+					{
+						_pongLScore++;
+						_pongShowScore = true;
+						resetPongBall();
+					}
+				}
+			}
+
+			_pongBall += _pongDir ? 1 : -1;
+
+			if(_pongShowScore)
+			{
+				_pongTimeout = 1000;
+				dispBuf = (((1UL << 32) - 1) - ((1UL << (32 - _pongLScore)) - 1)) + ((1UL << _pongRScore) - 1);
+			}
+			else
+			{
+				dispBuf = _pongPaddles | (1UL << _pongBall);
 			}
 		}
 	}
